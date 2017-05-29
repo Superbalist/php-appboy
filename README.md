@@ -40,7 +40,7 @@ $appboy->sendMessage(
                 ->setAsset('file://image.jpg', 'jpg')
                 ->build()
         )
-    ->build()
+        ->build()
 );
 
 ```
