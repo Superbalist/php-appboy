@@ -1,0 +1,30 @@
+{
+  "name": "superbalist/php-appboy",
+  "description": "A PHP client for sending push notifications via the Appboy API",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
+      "email": "info@superbalist.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Superbalist\\Appboy\\": "src/",
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.6",
+    "mockery/mockery": "^0.9.5"
+  }
+}
