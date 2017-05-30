@@ -172,10 +172,10 @@ class AndroidMessageBuilderTest extends TestCase
         $this->assertEquals(60, $params['time_to_live']);
     }
 
-    public function testSetExpiryDate()
+    public function testExpiresAt()
     {
         $builder = new AndroidMessageBuilder();
-        $return = $builder->setExpiryDate(new \DateTime('+1 minute'));
+        $return = $builder->expiresAt(new \DateTime('+1 minute'));
         $this->assertSame($builder, $return);
         $params = $builder->build();
         $this->assertArrayHasKey('time_to_live', $params);

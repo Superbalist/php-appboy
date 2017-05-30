@@ -118,10 +118,10 @@ class AppleMessageBuilderTest extends TestCase
         $this->assertEquals('shipping_notification', $params['category']);
     }
 
-    public function testSetExpiryDate()
+    public function testExpiresAt()
     {
         $builder = new AppleMessageBuilder();
-        $return = $builder->setExpiryDate(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')));
+        $return = $builder->expiresAt(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')));
         $this->assertSame($builder, $return);
         $params = $builder->build();
         $this->assertArrayHasKey('expiry', $params);
@@ -168,7 +168,7 @@ class AppleMessageBuilderTest extends TestCase
             ->setSound('custom_sound')
             ->withExtraAttributes(['is_test' => true])
             ->setCategory('shipping_notification')
-            ->setExpiryDate(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
+            ->expiresAt(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
             ->setUri('http://superbalist.com')
             ->setMessageVariation('group_a')
             ->setAsset('file://image.jpg', 'jpg')

@@ -258,7 +258,7 @@ class AndroidMessageBuilder
      * @return AndroidMessageBuilder
      * @see https://developers.google.com/cloud-messaging/concept-options
      */
-    public function setExpiryDate(DateTime $date)
+    public function expiresAt(DateTime $date)
     {
         $this->timeToLive = $date->getTimestamp() - time();
         return $this;

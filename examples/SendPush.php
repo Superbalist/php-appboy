@@ -23,7 +23,7 @@ $response = $appboy->sendMessage(
                 ->setAlert('This is a test message')
                 ->withExtraAttributes(['is_test' => true])
                 ->setCategory('matthew_test')
-                ->setExpiryDate(new \DateTime('+1 hour', new \DateTimeZone('Africa/Johannesburg')))
+                ->expiresAt(new \DateTime('+1 hour', new \DateTimeZone('Africa/Johannesburg')))
                 ->setUri('http://superbalist.com')
                 ->build(),
             'android_push' => (new AndroidMessageBuilder())

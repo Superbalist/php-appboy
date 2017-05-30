@@ -68,7 +68,7 @@ class AppleMessageBuilder
      *     ->setSound('custom_sound')
      *     ->withExtraAttributes(['is_test' => true])
      *     ->setCategory('shipping_notification')
-     *     ->setExpiryDate(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
+     *     ->expiresAt(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
      *     ->setUri('http://superbalist.com')
      *     ->setMessageVariation('group_a')
      *     ->setAsset('file://image.jpg', 'jpg')
@@ -173,7 +173,7 @@ class AppleMessageBuilder
      * @param DateTime $date
      * @return AppleMessageBuilder
      */
-    public function setExpiryDate(DateTime $date)
+    public function expiresAt(DateTime $date)
     {
         $this->expiryDate = $date;
         return $this;
