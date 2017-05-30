@@ -84,6 +84,7 @@ class AppleMessageBuilder
      * Set the badge count to display after the message is received.
      *
      * @param int $count
+     *
      * @return AppleMessageBuilder
      */
     public function setBadgeCount($count)
@@ -96,6 +97,7 @@ class AppleMessageBuilder
      * Set the message content.
      *
      * @param string $alert
+     *
      * @return AppleMessageBuilder
      */
     public function setAlert($alert)
@@ -110,6 +112,7 @@ class AppleMessageBuilder
      * The 'default' sound is used as a default.
      *
      * @param string $sound
+     *
      * @return AppleMessageBuilder
      */
     public function setSound($sound)
@@ -122,6 +125,7 @@ class AppleMessageBuilder
      * Set additional key => value attributes to include with the message.
      *
      * @param array $attributes
+     *
      * @return AppleMessageBuilder
      */
     public function withExtraAttributes(array $attributes)
@@ -135,6 +139,7 @@ class AppleMessageBuilder
      *
      * @param string $key
      * @param mixed $value
+     *
      * @return AppleMessageBuilder
      */
     public function addExtraAttribute($key, $value)
@@ -147,6 +152,7 @@ class AppleMessageBuilder
      * Add additional attributes to include with the message.
      *
      * @param array $attributes
+     *
      * @return AppleMessageBuilder
      */
     public function addExtraAttributes(array $attributes)
@@ -159,6 +165,7 @@ class AppleMessageBuilder
      * Set the category.
      *
      * @param string $category
+     *
      * @return AppleMessageBuilder
      */
     public function setCategory($category)
@@ -171,6 +178,7 @@ class AppleMessageBuilder
      * Set a date/time at which the message will expire.
      *
      * @param DateTime $date
+     *
      * @return AppleMessageBuilder
      */
     public function expiresAt(DateTime $date)
@@ -183,6 +191,7 @@ class AppleMessageBuilder
      * Set a uri / deep-link click through.
      *
      * @param string $uri
+     *
      * @return AppleMessageBuilder
      */
     public function setUri($uri)
@@ -195,6 +204,7 @@ class AppleMessageBuilder
      * Set the message variation under which this send will be tracked under.
      *
      * @param string $messageVariationId
+     *
      * @return AppleMessageBuilder
      */
     public function setMessageVariation($messageVariationId)
@@ -210,6 +220,7 @@ class AppleMessageBuilder
      *
      * @param string $url
      * @param string $fileType
+     *
      * @return AppleMessageBuilder
      */
     public function setAsset($url, $fileType)

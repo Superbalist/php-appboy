@@ -66,7 +66,7 @@ class AppboyTest extends TestCase
                 'POST',
                 'messages/send',
                 json_encode(['lorem' => 'ipsum']),
-                ['Content-Type' => 'application/json']
+                ['Content-Type' => 'application/json'],
             ])
             ->once()
             ->andReturn($request);
@@ -87,7 +87,7 @@ class AppboyTest extends TestCase
                 [
                     'app_group_id' => 'ABC123',
                     'blah' => 'bleh',
-                ]
+                ],
             ])
             ->once();
         $appboy->sendMessage(['blah' => 'bleh']);
@@ -103,7 +103,7 @@ class AppboyTest extends TestCase
                 [
                     'app_group_id' => 'ABC123',
                     'blah' => 'bleh',
-                ]
+                ],
             ])
             ->once();
         $appboy->scheduleMessage(['blah' => 'bleh']);

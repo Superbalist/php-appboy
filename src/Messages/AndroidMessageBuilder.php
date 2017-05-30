@@ -103,6 +103,7 @@ class AndroidMessageBuilder
      * Set the message content.
      *
      * @param string $alert
+     *
      * @return AndroidMessageBuilder
      */
     public function setAlert($alert)
@@ -115,6 +116,7 @@ class AndroidMessageBuilder
      * Set the message title.
      *
      * @param string $title
+     *
      * @return AndroidMessageBuilder
      */
     public function setTitle($title)
@@ -127,6 +129,7 @@ class AndroidMessageBuilder
      * Set additional key => value attributes to include with the message.
      *
      * @param array $attributes
+     *
      * @return AndroidMessageBuilder
      */
     public function withExtraAttributes(array $attributes)
@@ -140,6 +143,7 @@ class AndroidMessageBuilder
      *
      * @param string $key
      * @param mixed $value
+     *
      * @return AndroidMessageBuilder
      */
     public function addExtraAttribute($key, $value)
@@ -152,6 +156,7 @@ class AndroidMessageBuilder
      * Add additional attributes to include with the message.
      *
      * @param array $attributes
+     *
      * @return AndroidMessageBuilder
      */
     public function addExtraAttributes(array $attributes)
@@ -164,6 +169,7 @@ class AndroidMessageBuilder
      * Set the message variation under which this send will be tracked under.
      *
      * @param string $messageVariationId
+     *
      * @return AndroidMessageBuilder
      */
     public function setMessageVariation($messageVariationId)
@@ -176,7 +182,9 @@ class AndroidMessageBuilder
      * Set the message priority.
      *
      * @param int $priority
+     *
      * @return AndroidMessageBuilder
+     *
      * @see https://www.appboy.com/documentation/Android/#advanced-use-cases
      */
     public function setPriority($priority)
@@ -189,6 +197,7 @@ class AndroidMessageBuilder
      * Set the collapse key.
      *
      * @param string $collapseKey
+     *
      * @return AndroidMessageBuilder
      */
     public function setCollapseKey($collapseKey)
@@ -203,6 +212,7 @@ class AndroidMessageBuilder
      * The 'default' sound is used as a default.
      *
      * @param string $sound
+     *
      * @return AndroidMessageBuilder
      */
     public function setSound($sound)
@@ -215,6 +225,7 @@ class AndroidMessageBuilder
      * Set a uri / deep-link click through.
      *
      * @param string $uri
+     *
      * @return AndroidMessageBuilder
      */
     public function setUri($uri)
@@ -223,11 +234,11 @@ class AndroidMessageBuilder
         return $this;
     }
 
-
     /**
      * Set the summary text.
      *
      * @param string $summaryText
+     *
      * @return AndroidMessageBuilder
      */
     public function setSummaryText($summaryText)
@@ -242,7 +253,9 @@ class AndroidMessageBuilder
      * The ttl value is a number in seconds before which the message will expire.
      *
      * @param int $timeToLive
+     *
      * @return AndroidMessageBuilder
+     *
      * @see https://developers.google.com/cloud-messaging/concept-options
      */
     public function setTimeToLive($timeToLive)
@@ -255,7 +268,9 @@ class AndroidMessageBuilder
      * Set the time to live (TTL) based on a date/time.
      *
      * @param DateTime $date
+     *
      * @return AndroidMessageBuilder
+     *
      * @see https://developers.google.com/cloud-messaging/concept-options
      */
     public function expiresAt(DateTime $date)
@@ -268,6 +283,7 @@ class AndroidMessageBuilder
      * Set the notification id.
      *
      * @param int $notificationId
+     *
      * @return AndroidMessageBuilder
      */
     public function setNotificationId($notificationId)
@@ -280,6 +296,7 @@ class AndroidMessageBuilder
      * Set the push icon image url.
      *
      * @param string $url
+     *
      * @return AndroidMessageBuilder
      */
     public function setPushIconImageUrl($url)
@@ -292,6 +309,7 @@ class AndroidMessageBuilder
      * Set the accent colour to display in the push bar.
      *
      * @param int $colour
+     *
      * @return AndroidMessageBuilder
      */
     public function setAccentColour($colour)
