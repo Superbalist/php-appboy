@@ -18,8 +18,13 @@ composer require superbalist/php-appboy
 ## Usage
 
 ```php
-$client = new \GuzzleHttp\Client();
-$appboy = new \Superbalist\Appboy\Appboy($client, 'your-app-group-id');
+use GuzzleHttp\Client;
+use Superbalist\Appboy\Appboy;
+use Superbalist\Appboy\Messages\AndroidMessageBuilder;
+use Superbalist\Appboy\Messages\AppleMessageBuilder;
+
+$client = new Client();
+$appboy = new Appboy($client, 'your-app-group-id');
 
 // send a push message
 $appboy->sendMessage(
@@ -28,7 +33,7 @@ $appboy->sendMessage(
         ->setCampaign('my_campaign')
         ->ignoreFrequencyCapping()
         ->setSubscriptionState('opted_in')
-        ->withMessage(
+        ->withMessages([
             (new AppleMessageBuilder())
                 ->setAlert('Hello World!')
                 ->setSound('custom_sound')
@@ -38,8 +43,23 @@ $appboy->sendMessage(
                 ->setUri('http://superbalist.com')
                 ->setMessageVariation('group_a')
                 ->setAsset('file://image.jpg', 'jpg')
-                ->build()
-        )
+                ->build(),
+            (new AndroidMessageBuilder())
+                ->setAlert('Hello World!')
+                ->setTitle('Message Title')
+                ->withExtraAttributes(['is_test' => true])
+                ->setMessageVariation('group_a')
+                ->setPriority(2)
+                ->setCollapseKey('shipment_1234')
+                ->setSound('custom_sound')
+                ->setUri('http://superbalist.com')
+                ->setSummaryText('This is a summary line')
+                ->setTimeToLive(60)
+                ->setNotificationId(18456)
+                ->setPushIconImageUrl('http://link/to/asset.jpg')
+                ->setAccentColour(16777215)
+                ->build(),
+        ])
         ->build()
 );
 
