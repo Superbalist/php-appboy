@@ -7,9 +7,9 @@ include __DIR__ . '/../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 use Superbalist\Appboy\Appboy;
-use Superbalist\Appboy\NotificationBuilder;
 use Superbalist\Appboy\Messages\AndroidMessageBuilder;
 use Superbalist\Appboy\Messages\AppleMessageBuilder;
+use Superbalist\Appboy\NotificationBuilder;
 
 $client = new Client();
 $appboy = new Appboy($client, getenv('APPBOY_APP_GROUP_ID'));

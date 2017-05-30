@@ -178,7 +178,7 @@ class ScheduledNotificationBuilderTest extends TestCase
             'override_frequency_capping' => true,
             'recipient_subscription_state' => 'opted_in',
             'messages' => [
-                'apple_push' => ['alert' => 'Hello World!']
+                'apple_push' => ['alert' => 'Hello World!'],
             ],
         ];
         $this->assertEquals($expected, $params);
