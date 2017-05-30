@@ -4,6 +4,7 @@ A PHP client for sending push notifications via the [Appboy](https://www.appboy.
 
 [![Author](http://img.shields.io/badge/author-@superbalist-blue.svg?style=flat-square)](https://twitter.com/superbalist)
 [![Build Status](https://img.shields.io/travis/Superbalist/php-appboy/master.svg?style=flat-square)](https://travis-ci.org/Superbalist/php-appboy)
+[![StyleCI](https://styleci.io/repos/92749823/shield?branch=master)](https://styleci.io/repos/92749823)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Packagist Version](https://img.shields.io/packagist/v/superbalist/php-appboy.svg?style=flat-square)](https://packagist.org/packages/superbalist/php-appboy)
 [![Total Downloads](https://img.shields.io/packagist/dt/superbalist/php-appboy.svg?style=flat-square)](https://packagist.org/packages/superbalist/php-appboy)
