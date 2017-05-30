@@ -92,4 +92,20 @@ class AppboyTest extends TestCase
             ->once();
         $appboy->sendMessage(['blah' => 'bleh']);
     }
+
+    public function testScheduleMessage()
+    {
+        $guzzleClient = Mockery::mock(Client::class);
+        $appboy = Mockery::mock('\Superbalist\Appboy\Appboy[post]', [$guzzleClient, 'ABC123']);
+        $appboy->shouldReceive('post')
+            ->withArgs([
+                'messages/schedule/create',
+                [
+                    'app_group_id' => 'ABC123',
+                    'blah' => 'bleh',
+                ]
+            ])
+            ->once();
+        $appboy->scheduleMessage(['blah' => 'bleh']);
+    }
 }

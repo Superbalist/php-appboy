@@ -21,6 +21,7 @@ composer require superbalist/php-appboy
 use GuzzleHttp\Client;
 use Superbalist\Appboy\Appboy;
 use Superbalist\Appboy\NotificationBuilder;
+use Superbalist\Appboy\ScheduledNotificationBuilder;
 use Superbalist\Appboy\Messages\AndroidMessageBuilder;
 use Superbalist\Appboy\Messages\AppleMessageBuilder;
 
@@ -64,4 +65,26 @@ $appboy->sendMessage(
         ->build()
 );
 
+// schedule a push message
+$appboy->scheduleMessage(
+    (new ScheduledNotificationBuilder())
+        ->toUsers([1, 2])
+        ->setCampaign('my_campaign')
+        ->ignoreFrequencyCapping()
+        ->setSubscriptionState('opted_in')
+        ->withMessage(
+            'apple_push',
+            (new AppleMessageBuilder())
+                ->setAlert('Hello World!')
+                ->setSound('custom_sound')
+                ->withExtraAttributes(['is_test' => true])
+                ->setCategory('shipping_notification')
+                ->setExpiryDate(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
+                ->setUri('http://superbalist.com')
+                ->setMessageVariation('group_a')
+                ->setAsset('file://image.jpg', 'jpg')
+                ->build()
+        )
+        ->sendsAt(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
+        ->build()
 ```

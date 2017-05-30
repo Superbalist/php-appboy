@@ -184,4 +184,43 @@ class Appboy {
         $params['app_group_id'] = $this->appGroupId;
         return $this->post('messages/send', $params);
     }
+
+    /**
+     * Schedule a message.
+     *
+     * **Example**
+     *
+     * ```php
+     * $appboy->scheduleMessage(
+     *     (new ScheduledNotificationBuilder())
+     *         ->toUsers([1, 2])
+     *         ->setCampaign('my_campaign')
+     *         ->ignoreFrequencyCapping()
+     *         ->setSubscriptionState('opted_in')
+     *         ->withMessage(
+     *             'apple_push',
+     *             (new AppleMessageBuilder())
+     *                 ->setAlert('Hello World!')
+     *                 ->setSound('custom_sound')
+     *                 ->withExtraAttributes(['is_test' => true])
+     *                 ->setCategory('shipping_notification')
+     *                 ->setExpiryDate(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
+     *                 ->setUri('http://superbalist.com')
+     *                 ->setMessageVariation('group_a')
+     *                 ->setAsset('file://image.jpg', 'jpg')
+     *                 ->build()
+     *         )
+     *         ->sendsAt(new \DateTime('2017-05-29 10:00:00', new \DateTimeZone('Africa/Johannesburg')))
+     *         ->build()
+     * );
+     * ```
+     *
+     * @param array $params
+     * @return array
+     */
+    public function scheduleMessage(array $params)
+    {
+        $params['app_group_id'] = $this->appGroupId;
+        return $this->post('messages/schedule/create', $params);
+    }
 }
