@@ -29,12 +29,13 @@ class ScheduledNotificationBuilder extends NotificationBuilder
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
      * Set the send date/time.
      *
+     * @param DateTime $date
      * @return ScheduledNotificationBuilder
      */
     public function sendsAt(DateTime $date)

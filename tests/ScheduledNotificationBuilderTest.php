@@ -182,6 +182,5 @@ class ScheduledNotificationBuilderTest extends TestCase
             ],
         ];
         $this->assertEquals($expected, $params);
-
     }
 }

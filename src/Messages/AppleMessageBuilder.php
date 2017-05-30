@@ -77,7 +77,7 @@ class AppleMessageBuilder
      */
     public function __construct()
     {
-
+        //
     }
 
     /**

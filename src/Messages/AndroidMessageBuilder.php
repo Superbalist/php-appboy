@@ -96,7 +96,7 @@ class AndroidMessageBuilder
      */
     public function __construct()
     {
-
+        //
     }
 
     /**

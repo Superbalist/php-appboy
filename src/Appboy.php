@@ -6,7 +6,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 
-class Appboy {
+class Appboy
+{
     /**
      * @var Client
      */

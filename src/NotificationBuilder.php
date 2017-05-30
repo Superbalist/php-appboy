@@ -51,7 +51,7 @@ class NotificationBuilder
      */
     public function __construct()
     {
-
+        //
     }
 
     /**

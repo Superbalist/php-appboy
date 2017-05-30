@@ -172,6 +172,5 @@ class NotificationBuilderTest extends TestCase
             ],
         ];
         $this->assertEquals($expected, $params);
-
     }
 }

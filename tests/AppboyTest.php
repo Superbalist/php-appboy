@@ -70,7 +70,7 @@ class AppboyTest extends TestCase
             ])
             ->once()
             ->andReturn($request);
-        $appboy->shouldreceive('sendRequest')
+        $appboy->shouldReceive('sendRequest')
             ->with($request)
             ->once();
 
