@@ -169,24 +169,28 @@ class NotificationBuilder
     /**
      * Set the message object.
      *
+     * @param string $type (apple_push|android_push|...)
      * @param array $message
      * @return NotificationBuilder
      */
-    public function withMessage(array $message)
+    public function withMessage($type, array $message)
     {
-        $this->messages = [$message];
+        $this->messages = [
+            $type => $message,
+        ];
         return $this;
     }
 
     /**
      * Add a message object.
      *
+     * @param string $type (apple_push|android_push|...)
      * @param array $message
      * @return NotificationBuilder
      */
-    public function addMessage(array $message)
+    public function addMessage($type, array $message)
     {
-        $this->messages[] = $message;
+        $this->messages[$type] = $message;
         return $this;
     }
 

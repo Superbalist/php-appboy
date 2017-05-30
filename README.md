@@ -35,7 +35,7 @@ $appboy->sendMessage(
         ->ignoreFrequencyCapping()
         ->setSubscriptionState('opted_in')
         ->withMessages([
-            (new AppleMessageBuilder())
+            'apple_push' => (new AppleMessageBuilder())
                 ->setAlert('Hello World!')
                 ->setSound('custom_sound')
                 ->withExtraAttributes(['is_test' => true])
@@ -45,7 +45,7 @@ $appboy->sendMessage(
                 ->setMessageVariation('group_a')
                 ->setAsset('file://image.jpg', 'jpg')
                 ->build(),
-            (new AndroidMessageBuilder())
+            'android_push' => (new AndroidMessageBuilder())
                 ->setAlert('Hello World!')
                 ->setTitle('Message Title')
                 ->withExtraAttributes(['is_test' => true])

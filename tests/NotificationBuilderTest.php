@@ -95,54 +95,58 @@ class NotificationBuilderTest extends TestCase
     {
         $builder = new NotificationBuilder();
         $return = $builder->withMessages([
-            ['alert' => 'Message 1'],
-            ['alert' => 'Message 2'],
+            'apple_push' => ['alert' => 'Message 1'],
+            'android_push' => ['alert' => 'Message 2'],
         ]);
         $this->assertSame($builder, $return);
         $params = $builder->build();
         $this->assertArrayHasKey('messages', $params);
-        $this->assertEquals([['alert' => 'Message 1'], ['alert' => 'Message 2']], $params['messages']);
+        $expected = [
+            'apple_push' => ['alert' => 'Message 1'],
+            'android_push' => ['alert' => 'Message 2'],
+        ];
+        $this->assertEquals($expected, $params['messages']);
 
-        $builder->withMessages([['alert' => 'Message 3']]);
+        $builder->withMessages(['apple_push' => ['alert' => 'Message 3']]);
         $params = $builder->build();
-        $this->assertEquals([['alert' => 'Message 3']], $params['messages']);
+        $this->assertEquals(['apple_push' => ['alert' => 'Message 3']], $params['messages']);
     }
 
     public function testWithMessage()
     {
         $builder = new NotificationBuilder();
-        $return = $builder->withMessage(['alert' => 'Message 1']);
+        $return = $builder->withMessage('apple_push', ['alert' => 'Message 1']);
         $this->assertSame($builder, $return);
         $params = $builder->build();
         $this->assertArrayHasKey('messages', $params);
-        $this->assertEquals([['alert' => 'Message 1']], $params['messages']);
+        $this->assertEquals(['apple_push' => ['alert' => 'Message 1']], $params['messages']);
 
-        $builder->withMessage(['alert' => 'Message 2']);
+        $builder->withMessage('android_push', ['alert' => 'Message 2']);
         $params = $builder->build();
-        $this->assertEquals([['alert' => 'Message 2']], $params['messages']);
+        $this->assertEquals(['android_push' => ['alert' => 'Message 2']], $params['messages']);
     }
 
     public function testAddMessage()
     {
         $builder = new NotificationBuilder();
-        $return = $builder->addMessage(['alert' => 'Message 1']);
+        $return = $builder->addMessage('apple_push', ['alert' => 'Message 1']);
         $this->assertSame($builder, $return);
         $params = $builder->build();
         $this->assertArrayHasKey('messages', $params);
-        $this->assertEquals([['alert' => 'Message 1']], $params['messages']);
+        $this->assertEquals(['apple_push' => ['alert' => 'Message 1']], $params['messages']);
 
-        $builder->withMessage(['alert' => 'Message 2']);
+        $builder->withMessage('android_push', ['alert' => 'Message 2']);
         $params = $builder->build();
-        $this->assertEquals([['alert' => 'Message 2']], $params['messages']);
+        $this->assertEquals(['android_push' => ['alert' => 'Message 2']], $params['messages']);
 
-        $builder->addMessage(['alert' => 'Message 3']);
-        $builder->addMessage(['alert' => 'Message 4']);
+        $builder->addMessage('apple_push', ['alert' => 'Message 3']);
+        $builder->addMessage('kindle_push', ['alert' => 'Message 4']);
         $params = $builder->build();
         $this->assertEquals(
             [
-                ['alert' => 'Message 2'],
-                ['alert' => 'Message 3'],
-                ['alert' => 'Message 4'],
+                'android_push' => ['alert' => 'Message 2'],
+                'apple_push' => ['alert' => 'Message 3'],
+                'kindle_push' => ['alert' => 'Message 4'],
             ],
             $params['messages']
         );
@@ -155,7 +159,7 @@ class NotificationBuilderTest extends TestCase
             ->setCampaign('my_campaign')
             ->ignoreFrequencyCapping()
             ->setSubscriptionState('opted_in')
-            ->withMessage(['alert' => 'Hello World!'])
+            ->withMessage('apple_push', ['alert' => 'Hello World!'])
             ->build();
 
         $expected = [
@@ -164,7 +168,7 @@ class NotificationBuilderTest extends TestCase
             'override_frequency_capping' => true,
             'recipient_subscription_state' => 'opted_in',
             'messages' => [
-                ['alert' => 'Hello World!']
+                'apple_push' => ['alert' => 'Hello World!']
             ],
         ];
         $this->assertEquals($expected, $params);

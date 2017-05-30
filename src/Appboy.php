@@ -160,6 +160,7 @@ class Appboy {
      *         ->ignoreFrequencyCapping()
      *         ->setSubscriptionState('opted_in')
      *         ->withMessage(
+     *             'apple_push',
      *             (new AppleMessageBuilder())
      *                 ->setAlert('Hello World!')
      *                 ->setSound('custom_sound')
