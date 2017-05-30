@@ -20,6 +20,7 @@ composer require superbalist/php-appboy
 ```php
 use GuzzleHttp\Client;
 use Superbalist\Appboy\Appboy;
+use Superbalist\Appboy\NotificationBuilder;
 use Superbalist\Appboy\Messages\AndroidMessageBuilder;
 use Superbalist\Appboy\Messages\AppleMessageBuilder;
 
