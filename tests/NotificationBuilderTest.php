@@ -15,6 +15,21 @@ class NotificationBuilderTest extends TestCase
         $params = $builder->build();
         $this->assertArrayHasKey('external_user_ids', $params);
         $this->assertEquals([1, 2], $params['external_user_ids']);
+
+        $builder->toUsers(2);
+        $params = $builder->build();
+        $this->assertArrayHasKey('external_user_ids', $params);
+        $this->assertEquals([2], $params['external_user_ids']);
+    }
+
+    public function testToUser()
+    {
+        $builder = new NotificationBuilder();
+        $return = $builder->toUser(2);
+        $this->assertSame($builder, $return);
+        $params = $builder->build();
+        $this->assertArrayHasKey('external_user_ids', $params);
+        $this->assertEquals([2], $params['external_user_ids']);
     }
 
     public function testToSegment()

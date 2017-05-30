@@ -57,14 +57,30 @@ class NotificationBuilder
     /**
      * Set the external user ids to send to.
      *
-     * @param array $ids
+     * @param array|mixed $ids
      * @return NotificationBuilder
      * @see https://www.appboy.com/documentation/REST_API/#external-user-id
      */
-    public function toUsers(array $ids)
+    public function toUsers($ids)
     {
+        if (!is_array($ids)) {
+            $ids = [$ids];
+        }
+
         $this->externalUserIds = $ids;
         return $this;
+    }
+
+    /**
+     * Set the external user id to send to.
+     *
+     * @param mixed $id
+     * @return NotificationBuilder
+     * @see https://www.appboy.com/documentation/REST_API/#external-user-id
+     */
+    public function toUser($id)
+    {
+        return $this->toUsers($id);
     }
 
     /**
