@@ -70,6 +70,7 @@ class Appboy
      * The App Group Identifier can be found in the developer console settings.
      *
      * @param string $appGroupId
+     *
      * @see https://www.appboy.com/documentation/REST_API/#app-group-identifier-explanation
      */
     public function setAppGroupId($appGroupId)
@@ -99,6 +100,7 @@ class Appboy
      * Return the full uri to an API end-point.
      *
      * @param string $endpoint
+     *
      * @return string
      */
     public function makeBaseUri($endpoint)
@@ -113,6 +115,7 @@ class Appboy
      * @param string $endpoint
      * @param mixed $body
      * @param array $headers
+     *
      * @return Request
      */
     protected function createRequest($method, $endpoint, $body = null, array $headers = [])
@@ -126,6 +129,7 @@ class Appboy
      *
      * @param string $endpoint
      * @param array $data
+     *
      * @return array
      */
     public function post($endpoint, array $data = [])
@@ -139,7 +143,9 @@ class Appboy
      * Send an HTTP request.
      *
      * @param RequestInterface $request
+     *
      * @throws \Exception
+     *
      * @return array
      */
     protected function sendRequest(RequestInterface $request)
@@ -178,6 +184,7 @@ class Appboy
      * ```
      *
      * @param array $params
+     *
      * @return array
      */
     public function sendMessage(array $params)
@@ -217,6 +224,7 @@ class Appboy
      * ```
      *
      * @param array $params
+     *
      * @return array
      */
     public function scheduleMessage(array $params)

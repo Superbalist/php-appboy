@@ -58,7 +58,9 @@ class NotificationBuilder
      * Set the external user ids to send to.
      *
      * @param array|mixed $ids
+     *
      * @return NotificationBuilder
+     *
      * @see https://www.appboy.com/documentation/REST_API/#external-user-id
      */
     public function toUsers($ids)
@@ -75,7 +77,9 @@ class NotificationBuilder
      * Set the external user id to send to.
      *
      * @param mixed $id
+     *
      * @return NotificationBuilder
+     *
      * @see https://www.appboy.com/documentation/REST_API/#external-user-id
      */
     public function toUser($id)
@@ -87,7 +91,9 @@ class NotificationBuilder
      * Set the segment to send to.
      *
      * @param string $segmentId
+     *
      * @return NotificationBuilder
+     *
      * @see https://www.appboy.com/documentation/REST_API/#segment-identifier
      */
     public function toSegment($segmentId)
@@ -100,7 +106,9 @@ class NotificationBuilder
      * Set the campaign identifier.
      *
      * @param string $campaignId
+     *
      * @return NotificationBuilder
+     *
      * @see https://www.appboy.com/documentation/REST_API/#campaign-identifier
      */
     public function setCampaign($campaignId)
@@ -146,6 +154,7 @@ class NotificationBuilder
      * The default state is 'subscribed' only.
      *
      * @param string $state (opted_int|subscribed|all)
+     *
      * @return NotificationBuilder
      */
     public function setSubscriptionState($state)
@@ -158,6 +167,7 @@ class NotificationBuilder
      * Set the message push objects.
      *
      * @param array $messages
+     *
      * @return NotificationBuilder
      */
     public function withMessages(array $messages)
@@ -171,6 +181,7 @@ class NotificationBuilder
      *
      * @param string $type (apple_push|android_push|...)
      * @param array $message
+     *
      * @return NotificationBuilder
      */
     public function withMessage($type, array $message)
@@ -186,6 +197,7 @@ class NotificationBuilder
      *
      * @param string $type (apple_push|android_push|...)
      * @param array $message
+     *
      * @return NotificationBuilder
      */
     public function addMessage($type, array $message)
