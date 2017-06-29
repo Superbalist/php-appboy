@@ -241,7 +241,6 @@ class AppleMessageBuilder
             'badge' => $this->badge,
             'alert' => $this->alert,
             'sound' => $this->sound,
-            'extra' => $this->extra,
             'category' => $this->category,
             'expiry' => $this->expiryDate ? $this->expiryDate->format('c') : null,
             'custom_uri' => $this->uri,
@@ -249,6 +248,10 @@ class AppleMessageBuilder
             'asset_url' => $this->assetUrl,
             'asset_file_type' => $this->assetFileType,
         ];
+
+        if (!empty($this->extra)) {
+            $params['extra'] = $this->extra;
+        }
 
         return array_filter($params, function ($param) {
             return $param !== null;

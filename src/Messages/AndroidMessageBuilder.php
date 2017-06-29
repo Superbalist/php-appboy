@@ -328,7 +328,6 @@ class AndroidMessageBuilder
         $params = [
             'alert' => $this->alert,
             'title' => $this->title,
-            'extra' => $this->extra,
             'message_variation_id' => $this->messageVariationId,
             'priority' => $this->priority,
             'collapse_key' => $this->collapseKey,
@@ -340,6 +339,10 @@ class AndroidMessageBuilder
             'push_icon_image_url' => $this->pushIconImageUrl,
             'accent_color' => $this->accentColour,
         ];
+
+        if (!empty($this->extra)) {
+            $params['extra'] = $this->extra;
+        }
 
         return array_filter($params, function ($param) {
             return $param !== null;

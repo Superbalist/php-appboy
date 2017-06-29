@@ -40,6 +40,10 @@ class AndroidMessageBuilderTest extends TestCase
         $params = $builder->build();
         $this->assertArrayHasKey('extra', $params);
         $this->assertEquals(['version' => 'abc'], $params['extra']);
+
+        $builder->withExtraAttributes([]);
+        $params = $builder->build();
+        $this->assertArrayNotHasKey('extra', $params);
     }
 
     public function testAddExtraAttribute()
